@@ -485,6 +485,18 @@ public class QuickScroll extends View {
         }
     }
 
+    /**
+     * Set the size of the handlebar.
+     *
+     * @param width - the width in pixels
+     * @param height - the height in pixels
+     */
+    public void setHandlebarSize(final float width, final float height) {
+        final RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mHandlebar.getLayoutParams();
+        params.width = (int) width;
+        params.height = (int) height;
+    }
+
     private TranslateAnimation moveCompat(final float toYDelta) {
         mMoveCompatAnim = new TranslateAnimation(0, 0, toYDelta, toYDelta);
         mMoveCompatAnim.setFillAfter(true);
