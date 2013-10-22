@@ -486,11 +486,9 @@ public class QuickScroll extends View {
     }
 
     private TranslateAnimation moveCompat(final float toYDelta) {
-        if (mMoveCompatAnim == null) {
-            mMoveCompatAnim = new TranslateAnimation(0, 0, toYDelta, toYDelta);
-            mMoveCompatAnim.setFillAfter(true);
-            mMoveCompatAnim.setDuration(0);
-        }
+        mMoveCompatAnim = new TranslateAnimation(0, 0, toYDelta, toYDelta);
+        mMoveCompatAnim.setFillAfter(true);
+        mMoveCompatAnim.setDuration(0);
         return mMoveCompatAnim;
     }
 
