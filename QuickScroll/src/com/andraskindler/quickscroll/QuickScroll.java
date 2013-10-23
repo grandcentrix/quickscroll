@@ -14,6 +14,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.TranslateAnimation;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import android.widget.AbsListView.OnScrollListener;
 
@@ -181,7 +182,11 @@ public class QuickScroll extends View {
                 mList.setOnScrollListener(new OnScrollListener() {
 
                     public void onScrollStateChanged(AbsListView view, int scrollState) {
-
+                        if (scrollState == SCROLL_STATE_TOUCH_SCROLL) {
+                            // Hide the keyboard
+                            InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                        }
                     }
 
                     @SuppressLint("NewApi")
