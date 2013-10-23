@@ -246,6 +246,13 @@ public class QuickScroll extends View {
         return false;
     }
 
+    @Override
+    public void setVisibility(int visibility) {
+        super.setVisibility(visibility);
+        mHandlebar.setVisibility(visibility);
+        mScrollbar.setVisibility(visibility);
+    }
+
     @SuppressLint("NewApi")
     private boolean IndicatorTouchEvent(final MotionEvent event) {
         switch (event.getAction()) {
